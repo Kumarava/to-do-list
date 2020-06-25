@@ -1,12 +1,10 @@
 import React from "react";
 export const Todos = () => {
   return (
-    <div>
-      <ul class="to-do-list"></ul>
+    <ul class="to-do-list">
       <li>Banana</li>
       <li>Apple</li>
       <li>Milk</li>
-      <hr />
-    </div>
+    </ul>
   );
 };
