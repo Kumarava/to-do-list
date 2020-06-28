@@ -1,10 +1,11 @@
 import React from "react";
-export const Todos = () => {
+import "./style.css";
+export const Todos = ({ todos }) => {
   return (
-    <ul class="to-do-list">
-      <li>Swim</li>
-      <li>Jiu-jitsu</li>
-      <li>work</li>
+    <ul className="to-do-list">
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.title}</li>
+      ))}
     </ul>
   );
 };
