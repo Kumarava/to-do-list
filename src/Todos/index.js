@@ -2,9 +2,9 @@ import React from "react";
 export const Todos = () => {
   return (
     <ul class="to-do-list">
-      <li>Banana</li>
-      <li>Apple</li>
-      <li>Milk</li>
+      <li>Swim</li>
+      <li>Jiu-jitsu</li>
+      <li>work</li>
     </ul>
   );
 };
