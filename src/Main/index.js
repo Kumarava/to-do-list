@@ -20,20 +20,19 @@ export const Main = () => {
     },
   ]);
 
-  const handleAddTodo=(todoTitle)=>{
-      const newTodo={
-        id: todos.length,
-        title: todoTitle,
-        done: false,
-      };
-      setTodos([...todos,newTodo]);
-  }
+  const handleAddTodo = (todoTitle) => {
+    const newTodo = {
+      id: todos.length,
+      title: todoTitle,
+      done: false,
+    };
+    setTodos([...todos, newTodo]);
+  };
   return (
     <main className="App-main">
       <Todos todos={todos} />
       <hr />
-      <NewToDoForm addTodo={handleAddTodo}/>
-      
+      <NewToDoForm addTodo={handleAddTodo} />
     </main>
   );
 };

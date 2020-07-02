@@ -1,15 +1,15 @@
 import React from "react";
 
-export const NewToDoForm = ({addTodo}) => {
-      const [todoTitle,setTodoTitle]=React.useState('');
-      const handleChange=(event)=>{
-          setTodoTitle(event.target.value);
-      };
-      const handleSubmit=(event)=>{
-            event.preventDefault();
-            addTodo(todoTitle);
-           setTodoTitle('');
-      };
+export const NewToDoForm = ({ addTodo }) => {
+  const [todoTitle, setTodoTitle] = React.useState("");
+  const handleChange = (event) => {
+    setTodoTitle(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addTodo(todoTitle);
+    setTodoTitle("");
+  };
 
   return (
     <form onSubmit={handleSubmit}>
