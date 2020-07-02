@@ -1,5 +1,6 @@
 import React from "react";
 import { Todos } from "../Todos";
+import { NewToDoForm } from "../NewToDoForm";
 export const Main = () => {
   const [todos, setTodos] = React.useState([
     {
@@ -19,9 +20,20 @@ export const Main = () => {
     },
   ]);
 
+  const handleAddTodo=(todoTitle)=>{
+      const newTodo={
+        id: todos.length,
+        title: todoTitle,
+        done: false,
+      };
+      setTodos([...todos,newTodo]);
+  }
   return (
     <main className="App-main">
       <Todos todos={todos} />
+      <hr />
+      <NewToDoForm addTodo={handleAddTodo}/>
+      
     </main>
   );
 };
