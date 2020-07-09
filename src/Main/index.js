@@ -28,11 +28,16 @@ export const Main = () => {
     };
     setTodos([...todos, newTodo]);
   };
+
+  const handleChangeTodo = (id) => {
+    const todo = todos.find((duetodo) => duetodo.id === id);
+    todo.done = !todo.done;
+  };
   return (
     <main className="App-main">
       <Todos todos={todos} />
       <hr />
-      <NewToDoForm addTodo={handleAddTodo} />
+      <NewToDoForm addTodo={handleAddTodo} changeTodo={handleChangeTodo} />
     </main>
   );
 };
