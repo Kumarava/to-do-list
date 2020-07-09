@@ -20,8 +20,6 @@ export const Main = () => {
     },
   ]);
 
-  console.log(todos);
-
   const handleAddTodo = (todoTitle) => {
     const newTodo = {
       id: todos.length,
@@ -37,11 +35,12 @@ export const Main = () => {
     todo.done = !todo.done;
     setTodos(newTodos);
   };
+
   return (
     <main className="App-main">
       <Todos todos={todos} changeTodo={handleChangeTodo} />
       <hr />
-      <NewToDoForm addTodo={handleAddTodo} changeTodo={handleChangeTodo} />
+      <NewToDoForm addTodo={handleAddTodo} />
     </main>
   );
 };
