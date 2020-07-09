@@ -1,4 +1,7 @@
 import React from "react";
+import AddIcon from "@material-ui/icons/Add";
+import Button from "@material-ui/core/Button";
+import { TextField, Box } from "@material-ui/core";
 
 export const NewToDoForm = ({ addTodo }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
@@ -13,13 +16,22 @@ export const NewToDoForm = ({ addTodo }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        value={todoTitle}
-        type="text"
-        placeholder="New Todo"
-        onChange={handleChange}
-      />
-      <button type="submit">Add</button>
+      <Box display="flex">
+        <TextField
+          value={todoTitle}
+          type="text"
+          label="New Todo"
+          onChange={handleChange}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          endIcon={<AddIcon />}
+        >
+          Add
+        </Button>
+      </Box>
     </form>
   );
 };
