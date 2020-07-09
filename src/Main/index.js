@@ -20,6 +20,8 @@ export const Main = () => {
     },
   ]);
 
+  console.log(todos);
+
   const handleAddTodo = (todoTitle) => {
     const newTodo = {
       id: todos.length,
@@ -30,12 +32,14 @@ export const Main = () => {
   };
 
   const handleChangeTodo = (id) => {
-    const todo = todos.find((duetodo) => duetodo.id === id);
+    const newTodos = [...todos];
+    const todo = newTodos.find((duetodo) => duetodo.id === id);
     todo.done = !todo.done;
+    setTodos(newTodos);
   };
   return (
     <main className="App-main">
-      <Todos todos={todos} />
+      <Todos todos={todos} changeTodo={handleChangeTodo} />
       <hr />
       <NewToDoForm addTodo={handleAddTodo} changeTodo={handleChangeTodo} />
     </main>
