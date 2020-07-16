@@ -1,7 +1,9 @@
 import React from "react";
 import { Todos } from "../Todos";
 import { NewToDoForm } from "../NewToDoForm";
+import { Filtering } from "../Filtering";
 export const Main = () => {
+  const [showAll, setShowAll] = React.useState(false);
   const [todos, setTodos] = React.useState([
     {
       id: 0,
@@ -38,7 +40,8 @@ export const Main = () => {
 
   return (
     <main className="App-main">
-      <Todos todos={todos} changeTodo={handleChangeTodo} />
+      <Filtering showAll={showAll} setShowAll={setShowAll} />
+      <Todos todos={todos} showAll={showAll} changeTodo={handleChangeTodo} />
       <hr />
       <NewToDoForm addTodo={handleAddTodo} />
     </main>
