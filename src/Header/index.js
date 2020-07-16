@@ -1,19 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
+import Button from "@material-ui/core/Button";
 
 export const Header = () => {
   return (
     <header className="App-header">
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-      </nav>
+      <AppBar position="static">
+        <Toolbar variant="dense">
+          <IconButton edge="start" color="inherit" aria-label="menu">
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" component={Link} to="/">
+            Todo-list
+          </Typography>
+          <Button color="inherit" component={Link} to="/about">
+            About
+          </Button>
+        </Toolbar>
+      </AppBar>
     </header>
   );
 };
