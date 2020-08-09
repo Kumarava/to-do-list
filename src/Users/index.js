@@ -1,8 +1,9 @@
 import React from "react";
-import { List, ListItem } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Paper, Box, Tab, Tabs } from "@material-ui/core";
+import { Link, useParams } from "react-router-dom";
 
 export const Users = () => {
+  let { userId } = useParams();
   const [users, setUsers] = React.useState([]);
   React.useEffect(() => {
     fetchUsers();
@@ -17,12 +18,20 @@ export const Users = () => {
   };
   if (!users.length) return <h1>Loading..</h1>;
   return (
-    <List>
-      {users.map((user) => (
-        <ListItem component={Link} to={`/users/${user._id}`} key={user._id}>
-          {user.name}
-        </ListItem>
-      ))}
-    </List>
+    <Box mr={2}>
+      <Paper>
+        <Tabs orientation="vertical" value={userId}>
+          {users.map((user) => (
+            <Tab
+              label={user.name}
+              component={Link}
+              to={`/${user._id}`}
+              key={user._id}
+              value={user._id}
+            />
+          ))}
+        </Tabs>
+      </Paper>
+    </Box>
   );
 };
