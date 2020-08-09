@@ -7,6 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import "./style.css";
+import { Box } from "@material-ui/core";
 
 export const Header = () => {
   return (
@@ -25,12 +26,11 @@ export const Header = () => {
           >
             Todo-list
           </Typography>
-          <Button color="inherit" component={Link} to="/users">
-            Users
-          </Button>
-          <Button color="inherit" component={Link} to="/about">
-            About
-          </Button>
+          <Box flexGrow={1} display="flex" justifyContent="flex-end">
+            <Button color="inherit" component={Link} to="/about">
+              About
+            </Button>
+          </Box>
         </Toolbar>
       </AppBar>
     </header>
