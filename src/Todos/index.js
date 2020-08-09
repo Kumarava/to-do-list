@@ -14,13 +14,14 @@ export const Todos = ({ showAll, todos, changeTodo }) => {
           return null;
         }
         return (
-          <li key={todo.id}>
+          <li key={todo._id}>
             <FormControlLabel
               label={todo.title}
               control={
                 <Checkbox
-                  onChange={() => handleChange(todo.id)}
+                  onChange={() => handleChange(todo._id)}
                   color="primary"
+                  checked={todo.done}
                 />
               }
             />
