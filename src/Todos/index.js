@@ -2,19 +2,27 @@ import React from "react";
 import "./style.css";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import {
+  ListItem,
+  List,
+  ListItemSecondaryAction,
+  IconButton,
+} from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
 
-export const Todos = ({ showAll, todos, changeTodo }) => {
+export const Todos = ({ showAll, todos, changeTodo, deleteTodo }) => {
   const handleChange = (id) => {
     changeTodo(id);
   };
+
   return (
-    <ul className="to-do-list">
+    <List className="to-do-list">
       {todos.map((todo) => {
         if (!showAll && todo.done) {
           return null;
         }
         return (
-          <li key={todo._id}>
+          <ListItem key={todo._id}>
             <FormControlLabel
               label={todo.title}
               control={
@@ -25,9 +33,18 @@ export const Todos = ({ showAll, todos, changeTodo }) => {
                 />
               }
             />
-          </li>
+            <ListItemSecondaryAction>
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={() => deleteTodo(todo._id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </ListItem>
         );
       })}
-    </ul>
+    </List>
   );
 };

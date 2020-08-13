@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import { TextField, Box } from "@material-ui/core";
 
-export const NewToDoForm = ({ addTodo }) => {
+export const NewToDoForm = ({ addTodo, onDelete }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
   const handleChange = (event) => {
     setTodoTitle(event.target.value);

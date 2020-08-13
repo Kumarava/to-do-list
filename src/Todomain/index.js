@@ -4,6 +4,7 @@ import { NewToDoForm } from "../NewToDoForm";
 import { Filtering } from "../Filtering";
 import { Paper, Box } from "@material-ui/core";
 import { useParams } from "react-router-dom";
+
 export const Todomain = () => {
   const [showAll, setShowAll] = React.useState(false);
   const [todos, setTodos] = React.useState([]);
@@ -56,6 +57,21 @@ export const Todomain = () => {
     else fetchTodos();
   };
 
+  const handleDelete = async (taskId) => {
+    const response = await fetch(
+      `https://merey-todo-list.herokuapp.com/api/todos/${taskId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const taskData = await response.json();
+    if (!taskData.taskId) alert("Property wasn't deleted");
+    else fetchTodos();
+  };
   if (!userId) return <h1>Please select User</h1>;
   return (
     <Paper>
@@ -67,6 +83,7 @@ export const Todomain = () => {
               todos={todos}
               showAll={showAll}
               changeTodo={handleChangeTodo}
+              deleteTodo={handleDelete}
             />
             <hr />
           </>
