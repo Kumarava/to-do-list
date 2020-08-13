@@ -23,6 +23,7 @@ export const NewToDoForm = ({ addTodo }) => {
           type="text"
           label="New Todo"
           onChange={handleChange}
+          fullWidth
         />
         <Button
           type="submit"
