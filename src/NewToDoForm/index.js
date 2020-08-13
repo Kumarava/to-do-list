@@ -3,7 +3,7 @@ import AddIcon from "@material-ui/icons/Add";
 import Button from "@material-ui/core/Button";
 import { TextField, Box } from "@material-ui/core";
 
-export const NewToDoForm = ({ addTodo, onDelete }) => {
+export const NewToDoForm = ({ addTodo }) => {
   const [todoTitle, setTodoTitle] = React.useState("");
   const handleChange = (event) => {
     setTodoTitle(event.target.value);
@@ -23,6 +23,7 @@ export const NewToDoForm = ({ addTodo, onDelete }) => {
           type="text"
           label="New Todo"
           onChange={handleChange}
+          fullWidth
         />
         <Button
           type="submit"

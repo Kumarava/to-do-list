@@ -69,7 +69,7 @@ export const Todomain = () => {
     );
 
     const taskData = await response.json();
-    if (!taskData.taskId) alert("Property wasn't deleted");
+    if (!taskData.taskId) alert("Task wasn't deleted");
     else fetchTodos();
   };
   if (!userId) return <h1>Please select User</h1>;
